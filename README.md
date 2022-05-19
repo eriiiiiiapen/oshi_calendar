@@ -44,3 +44,6 @@
 
 ##  ■画面遷移図URL(Figmaを使用)
 　https://www.figma.com/file/eyvNKNhdRXVYxJ4hWz8fna/Untitled?node-id=0%3A1 <br>
+
+##  ■ER図URL(draw.ioを使用)
+　https://drive.google.com/file/d/1wa-9GFqg-wAukA9lqxu9lsE28DJiF3WX/view?usp=sharing <br>
