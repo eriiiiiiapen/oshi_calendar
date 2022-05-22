@@ -29,6 +29,12 @@ module OshiCalendar
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    config.generators do |g|  # ここから追記
+      g.assets false          # CSS, JavaScriptファイル生成しない
+      g.skip_routes false     
+      g.test_framework false  # testファイル生成しない
+    end                       # ここまで
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
