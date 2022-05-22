@@ -1,0 +1,50 @@
+<div class= 'top-wrapper'>
+<div class='container'>
+  <div class='row'>
+  <div class='col-md-6'>
+  <div class='text-center'>
+    <h1>推しカレンダー</h1>
+    <%=link_to '試してみる', '#' %>
+  </div>
+  </div>
+  <div class='col-md-6'>
+  <%= image_tag 'shigurenisan_calender.png', size: '550x550' %>
+  </div>
+  </div>
+
+    <div class='text-center'>説明は下へ↓</div>
+
+  <h1>こういう時ありませんか？</h1>
+    <div class='row'>
+    <div class='col-md-6'>
+      <%= image_tag 'shigurenisan_mutyugirl.png', size: '500x500' %>
+      <nav class="navbar navbar-warning bg-warning">
+        <div class= 'information'>グッズを買い忘れた 争奪戦に乗り遅れた</div>
+      </nav>
+    </div>
+    <div class='col-md-6'>
+      <%= image_tag 'shigurenisan_money.png', size: '500x500' %>
+      <nav class="navbar navbar-warning bg-warning">
+      <div class= 'information'>今月は推しにどれくらい使えるか管理したい</div>
+      </nav>
+    </div>
+    </div>
+
+  <div class='row'>
+  <div class='col-md-7'>
+    <%= image_tag 'shigurenisan_calender.png', size: '700x700' %>
+  </div>
+  <div class='col-md-5 d-flex align-items-center'>
+    <div class= 'information'>
+      <h1>推しカレンダーの特徴</h1>
+      <ul>
+        <li>カレンダー形式だから一目でグッズ情報が分かる</li>
+        <li>欲しいグッズはお気に入り登録！リマインド機能で忘れずに購入できる（メール、アラート）</li>
+        <li>今月の推し活費用が分かる!</li>
+      </ul>
+    </div>
+  </div>
+  <button class='btn btn-warning'><%=link_to '試してみる', '#'%></button>
+  </div>
+</div>
+</div>
