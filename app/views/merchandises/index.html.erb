@@ -1,0 +1,10 @@
+<%= month_calendar(attribute: :start_at, end_attribute: :end_at, events: @merchandises) do |date, merchandises| %>
+  <%= date.day %>
+  
+  <% merchandises.each do |merchandise| %>
+    <div>
+    <%= link_to merchandise.name, edit_merchandise_path(merchandise) %>
+    </div>
+  <% end %>
+<% end %>
+
