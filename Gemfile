@@ -35,6 +35,9 @@ gem 'psych', '~> 3.1'
 
 gem 'sorcery'
 
+gem 'simple_calendar'
+gem 'rails-i18n'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

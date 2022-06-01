@@ -37,5 +37,15 @@ module OshiCalendar
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # デフォルトの言語設定を日本語に
+    config.i18n.default_locale = :ja
+
+    # 言語ファイル階層ごとに設定するための記述
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
+
+    # 日本時間にする
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end

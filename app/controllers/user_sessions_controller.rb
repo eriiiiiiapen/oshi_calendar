@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_to root_path
+      redirect_to merchandises_path
     else
       flash.now[:alert] = 'もう一度入力してください'
       render :new
