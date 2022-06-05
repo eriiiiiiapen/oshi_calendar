@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_24_154325) do
+ActiveRecord::Schema.define(version: 2022_06_01_144749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "merchandise_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["merchandise_id"], name: "index_bookmarks_on_merchandise_id"
+    t.index ["user_id", "merchandise_id"], name: "index_bookmarks_on_user_id_and_merchandise_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "merchandises", force: :cascade do |t|
     t.string "name", null: false
@@ -38,5 +48,7 @@ ActiveRecord::Schema.define(version: 2022_05_24_154325) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "bookmarks", "merchandises"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "merchandises", "users"
 end
