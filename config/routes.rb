@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get 'privacy', to: 'static_pages#privacy'
   resources :users, only: %i[new create edit update]
   resources :merchandises, only: %i[new create index edit update destroy]
-  resources :bookmarks, only: %i[create destroy]
+  post '/update_amount' => 'merchandises#update_amount'
+  resources :bookmarks, only: %i[create destroy update]
 end

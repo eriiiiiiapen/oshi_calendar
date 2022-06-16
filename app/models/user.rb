@@ -21,5 +21,5 @@ class User < ApplicationRecord
 
   def bookmark?(merchandise)
     bookmark_merchandises.include?(merchandise)
-  end  
+  end
 end

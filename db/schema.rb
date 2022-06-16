@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_06_01_144749) do
   create_table "bookmarks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "merchandise_id", null: false
+    t.integer "amount", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["merchandise_id"], name: "index_bookmarks_on_merchandise_id"
