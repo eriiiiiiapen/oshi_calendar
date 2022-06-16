@@ -1,7 +1,10 @@
 class MerchandisesController < ApplicationController
   before_action :set_merchandise, only: %i[edit update destroy]
+  before_action :set_bookmark, only: %i[update_amount]
   def index
     @merchandises = Merchandise.all
+    @bookmarks_merchandises = current_user.bookmark_merchandises.includes(:user).order(created_at: :desc)
+    @total_price = @bookmarks_merchandises.inject(0) { |sum, merchandise| sum + merchandise.price * current_user.bookmarks.find_by(merchandise_id: merchandise.id).amount }
   end
 
   def new
@@ -14,6 +17,12 @@ class MerchandisesController < ApplicationController
       redirect_to merchandises_path
     else
       render :new
+    end
+  end
+
+  def update_amount
+    if @bookmark.update(bookmark_params)
+      redirect_to merchandises_path
     end
   end
 
@@ -31,11 +40,19 @@ class MerchandisesController < ApplicationController
 
   private
 
+  def set_bookmark
+    @bookmark = current_user.bookmarks.find_by(merchandise_id: params[:merchandise_id])
+  end
+    
+  def bookmark_params  
+    params.permit(:amount, :merchandise_id, :user_id)
+  end
+
   def set_merchandise
     @merchandise = current_user.merchandises.find(params[:id])
   end
 
   def params_merchandise
-    params.require(:merchandise).permit(:name, :content, :price, :start_at, :end_at)
+    params.permit(:name, :content, :price, :start_at, :end_at)
   end
 end

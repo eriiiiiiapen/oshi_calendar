@@ -14,5 +14,32 @@
   </div>
   <% end %>
 <% end %>
+
+<div class='innner-text'>
+
+<h3>今月の推し活</h3>
+<% if @bookmarks_merchandises.present? %>
+  <% @bookmarks_merchandises.each do |merchandise| %>
+    <p><%= link_to merchandise.name, edit_merchandise_path(merchandise), class: 'merchandise-text' %></p>
+    <%= merchandise.price %>
+    ×
+    <%= current_user.bookmarks.find_by(merchandise_id: merchandise.id).amount %>
+    =
+    <%= merchandise.price * current_user.bookmarks.find_by(merchandise_id: merchandise.id).amount %>
+
+    <%= form_with(url: update_amount_url, method: :post, local: true) do |form| %>
+      <%= form.hidden_field :merchandise_id, :value => merchandise.id %>
+      <%= form.number_field :amount, placeholder: '個数を変更' %>
+      <%= form.submit "更新" %>
+    <% end %>
+  <% end %>
+ 
+  <h3>今月の推し額</h3>
+  <%= "#{@total_price}円" %>
+<% else %>
+購入なし
+<% end %>
+
+</div>
 </div>
 
