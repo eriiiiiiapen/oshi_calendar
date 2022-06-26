@@ -2,9 +2,11 @@
 <div class='container'>
   <div class='row'>
   <div class='col-md-6'>
-  <div class='text-center'>
+  <div class='title'>
     <h1>推しカレンダー</h1>
+    <div class='text-center'>
     <button class='btn btn-warning'><%=link_to '試してみる', new_user_path %></button>
+    </div>
   </div>
   </div>
   <div class='col-md-6'>
@@ -12,21 +14,23 @@
   </div>
   </div>
 
-    <div class='text-center'>説明は下へ↓</div>
+  <div style="text-align: center">説明は下へ↓</div>
 
   <h1>こういう時ありませんか？</h1>
     <div class='row'>
     <div class='col-md-6'>
       <%= image_tag 'shigurenisan_mutyugirl.png', size: '500x500' %>
-      <nav class="navbar navbar-warning bg-warning">
-        <div class= 'information'>グッズを買い忘れた 争奪戦に乗り遅れた</div>
-      </nav>
+        <div class= 'information'>
+          <p>▶︎ グッズを買い忘れた</p>
+          <p>▶︎ 争奪戦に乗り遅れた</p>
+        </div>
     </div>
     <div class='col-md-6'>
       <%= image_tag 'shigurenisan_money.png', size: '500x500' %>
-      <nav class="navbar navbar-warning bg-warning">
-      <div class= 'information'>今月は推しにどれくらい使えるか管理したい</div>
-      </nav>
+        <div class= 'information'>
+          <p>今月は推しにどれくらい</p>
+          <p>使えるか管理したい</p>
+        </div>
     </div>
     </div>
 
@@ -35,7 +39,7 @@
     <%= image_tag 'shigurenisan_calender.png', size: '700x700' %>
   </div>
   <div class='col-md-5 d-flex align-items-center'>
-    <div class= 'information'>
+    <div class= 'main-information'>
       <h1>推しカレンダーの特徴</h1>
       <ul>
         <li>カレンダー形式だから一目でグッズ情報が分かる</li>

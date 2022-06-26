@@ -53,6 +53,6 @@ class MerchandisesController < ApplicationController
   end
 
   def params_merchandise
-    params.permit(:name, :content, :price, :start_at, :end_at)
+    params.require(:merchandise).permit(:name, :content, :price, :start_at, :end_at)
   end
 end
