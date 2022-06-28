@@ -2,15 +2,24 @@
     h3 {
         border-bottom: dashed 1px #87CEFA;
     }
+
+    h4 {
+        padding-bottom: 10px;
+    }
+
     .innner-text {
-        padding-bottom: 50px;
+        padding-bottom: 20px;
 
         .form-text{
-            padding-bottom: 10px;            
+            padding-bottom: 15px;            
         }
 
         .merchandise-text {
             font-size: 20px;
+        }
+
+        .category-text {
+            border-radius: 10px;
         }
     }
 }
