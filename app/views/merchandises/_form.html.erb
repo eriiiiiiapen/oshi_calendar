@@ -11,12 +11,12 @@
 
   <div class="field">
   <%= form.label :start_at %>
-  <%= form.datetime_select :start_at, class: 'form-control'   %>
+  <%= form.datetime_field :start_at, class: 'form-control'   %>
   </div>
 
   <div class="field">
   <%= form.label :end_at %>
-  <%= form.datetime_select :end_at, class: 'form-control'   %>
+  <%= form.datetime_field :end_at, class: 'form-control'   %>
   </div>
 
   <div class="field">
@@ -29,8 +29,8 @@
     <%= form.text_field :price, class: 'form-control'   %>
   </div>
 
-  <div class="submit">
-    <%= form.submit %>
+  <div class="action">
+    <%= form.submit class: 'btn btn-warning' %>
   </div>
 
 <% end %>
