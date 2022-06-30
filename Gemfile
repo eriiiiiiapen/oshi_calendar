@@ -32,6 +32,8 @@ gem 'bootstrap', '~> 4.6'
 gem 'font-awesome-rails'
 
 gem 'net-smtp', require: false
+gem 'net-imap'
+gem 'net-pop'
 gem 'psych', '~> 3.1'
 
 gem 'sorcery'
