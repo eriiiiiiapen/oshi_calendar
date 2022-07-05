@@ -4,18 +4,13 @@
       <%= image_tag 'shigurenisan_calender.png', size: '100x100' %>
     <% end %>
 
-    <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent'
-      aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-      <span class='navbar-toggler-icon'></span>
-    </button>
-
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav ml-auto main-nav align-items-center'>
         <li class='nav-item'>
-          <%= link_to 'ご意見・ご要望', "#", class: 'nav-link' %>
+        <button class='btn btn-warning'><%= link_to 'ご意見・ご要望', "#", class: 'nav-link' %></button>
         </li>
         <li class='nav-item'>        
-        <%= link_to 'ログイン', login_path, class: 'nav-link' %>
+        <button class='btn btn-warning'><%= link_to 'ログイン', login_path, class: 'nav-link' %></button>
         </li>
       </ul> 
     </div>

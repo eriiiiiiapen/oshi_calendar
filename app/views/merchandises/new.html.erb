@@ -1,3 +1,41 @@
 <h1>グッズ情報追加</h1>
 
-<%= render 'form', merchandise: @merchandise %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+
+<%= form_with(model: merchandise, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control'   %>
+  </div>
+
+  <div class="field">
+  <%= form.label :start_at %>
+  <%= form.datetime_field :start_at, value: Time.current.beginning_of_day.strftime('%Y-%m-%dT%T'), class: 'form-control' %>
+  </div>
+
+  <div class="field">
+  <%= form.label :end_at %>
+  <%= form.datetime_field :end_at, class: 'form-control'   %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content, class: 'form-control'   %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, class: 'form-control'   %>
+  </div>
+
+  <div class="action">
+    <%= form.submit class: 'btn btn-warning' %>
+  </div>
+
+<% end %>
+</div>
+</div>
+</div>
