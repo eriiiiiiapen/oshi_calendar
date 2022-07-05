@@ -5,8 +5,20 @@ class MerchandisesController < ApplicationController
   def index
     @merchandises = current_user.merchandises
     @bookmarks_merchandises = current_user.bookmark_merchandises.includes(:user).order(created_at: :asc)
-    @total_price = @bookmarks_merchandises.inject(0) { |sum, merchandise| sum + merchandise.price * current_user.bookmarks.find_by(merchandise_id: merchandise.id).amount }
-    @category_users = current_user.categories    
+
+    array_price = []
+    array_bookmarks_merchandise = []
+
+    @bookmarks_merchandises.each do |bookmarks_merchandise|
+      if Date.today.month == bookmarks_merchandise.start_at.month
+      array_bookmarks_merchandise << bookmarks_merchandise
+      array_price << bookmarks_merchandise.price * bookmarks_merchandise.bookmarks.find_by(merchandise_id: bookmarks_merchandise.id).amount  
+      end
+
+      @month_bookmarks_merchandises = array_bookmarks_merchandise
+      @total_price = array_price.sum
+    end
+      @category_users = current_user.categories    
   end
 
   def new

@@ -22,8 +22,8 @@
       <h4><%= "#{@total_price}円" %></h4>
 
       <h3>今月の推し活</h3>
-    <% if @bookmarks_merchandises.present? %>
-      <% @bookmarks_merchandises.each do |merchandise| %>
+    <% if @month_bookmarks_merchandises.present? %>
+      <% @month_bookmarks_merchandises.each do |merchandise| %>
         <%= link_to merchandise.name, edit_merchandise_path(merchandise), class: 'merchandise-text' %><br>
         <%= merchandise.price %>
         ×

@@ -24,7 +24,7 @@ ja:
           password_confirmation: 'パスワード確認'
       merchandise:
           name: 'グッズ名'
-          content: '内容'
+          content: 'グッズについての補足'
           price: '値段'
           start_at: '開始日'
           end_at: '終了日'
