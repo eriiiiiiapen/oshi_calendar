@@ -1,0 +1,10 @@
+.footer-bottom {
+    padding: 10px 0;
+    background: #ffc107b0;
+    text-align: left;
+    color: rgb(255, 255, 255);
+
+    @media (max-width: 767px){
+      text-align: center;
+    }
+}

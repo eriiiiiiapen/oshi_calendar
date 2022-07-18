@@ -1,4 +1,5 @@
 <div class= 'main-container'>
+<div class="col-md-12">
 <%= month_calendar(attribute: :start_at, end_attribute: :end_at, events: @merchandises) do |date, merchandises| %>
   <%= date.day %>
   
@@ -8,6 +9,7 @@
   </div>
   <% end %>
 <% end %>
+</div>
 
 <%= javascript_pack_tag 'merchandises/cost' %>
 <div class="row">
