@@ -2,51 +2,59 @@
 <div class='container'>
   <div class='row'>
   <div class='col-md-6'>
-  <div class='title'>
-    <h1>推しカレンダー</h1>
+    <div class='title'>
     <div class='text-center'>
-    <button class='btn btn-warning w-50 mt-2'><%=link_to 'ユーザー登録', new_user_path %></button>
+      <h1>推しカレンダー</h1>
+      <button class='btn btn-warning w-50 mt-2'><%=link_to 'ユーザー登録', new_user_path %></button>
+    </div>
     </div>
   </div>
-  </div>
   <div class='col-md-6'>
-  <%= image_tag 'shigurenisan_calender.png', size: '550x550' %>
+  <%= image_tag 'shigurenisan_calender.png', size: '500x500', class: "img-responsive" %>
   </div>
   </div>
 
   <h1>こういう時ありませんか？</h1>
     <div class='row'>
     <div class='col-md-6'>
-      <%= image_tag 'shigurenisan_mutyugirl.png', size: '500x500' %>
+      <%= image_tag 'shigurenisan_mutyugirl.png', size: '500x500', class: "d-block mx-auto" %>
+      </div>
+      <div class='col-md-6'>
         <div class= 'information'>
           <p>▶︎ グッズを買い忘れた</p>
           <p>▶︎ 争奪戦に乗り遅れた</p>
         </div>
+      </div>
     </div>
-    <div class='col-md-6'>
-      <%= image_tag 'shigurenisan_money.png', size: '500x500' %>
+    <div class='row'>
+      <div class='col-md-6'>
+        <%= image_tag 'shigurenisan_money.png', size: '500x500', class: "d-block mx-auto" %>
+      </div>
+      <div class='col-md-6'>
         <div class= 'information'>
           <p>今月は推しにどれくらい</p>
           <p>使えるか管理したい</p>
         </div>
-    </div>
+      </div>
     </div>
 
   <div class='row'>
-  <div class='col-md-7'>
-    <%= image_tag 'oshi_calendar_main.png', size: '500x300' %>
-  </div>
-  <div class='col-md-5 d-flex align-items-center'>
+    <div class='col-md-6 main-information-image'>
+      <%= image_tag 'oshi_calendar_main.png', size: '500x300', class: "d-block mx-auto" %>
+    </div>
+    <div class='col-md-6'>
     <div class= 'main-information'>
       <h1>推しカレンダーの特徴</h1>
-      <ul>
-        <li>カレンダー形式だから一目でグッズ情報が分かる</li>
-        <li>欲しいグッズはお気に入り登録！リマインド機能で忘れずに購入できる（メール、アラート）</li>
-        <li>今月の推し活費用が分かる!</li>
-      <button class='btn btn-warning w-50 mt-2'><%=link_to 'ユーザー登録', new_user_path %></button>
-      </ul>
+        <ul>
+          <li>カレンダー形式だから一目でグッズ情報が分かる</li>
+          <%#  <li>欲しいグッズはお気に入り登録！リマインド機能で忘れずに購入できる（メール、アラート）</li> %>
+          <li>今月の推し活費用が分かる!</li>
+          <div class='text-center'>
+          <button class='btn btn-warning w-50 mt-2'><%=link_to 'ユーザー登録', new_user_path %></button>
+          </div>
+        </ul>
     </div>
-  </div>
+    </div>
   </div>
 </div>
 </div>

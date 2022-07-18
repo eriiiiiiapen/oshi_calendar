@@ -28,19 +28,23 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# UI/UX
 gem 'bootstrap', '~> 4.6'
 gem 'font-awesome-rails'
+gem 'rails-i18n'
 
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp', require: false
 gem 'psych', '~> 3.1'
 
+# Authentication
 gem 'sorcery'
 
-gem 'rails-i18n'
+# Calendar
 gem 'simple_calendar'
 
+# Search
 gem 'ransack'
 
 group :development, :test do

@@ -5,10 +5,9 @@
         .form-control{
             background-color: rgb(255, 232, 189);
         }
-    }
-
-    @media screen and (max-width: 767px) {
-        font-size: 2.0rem;
+        @media screen and (max-width: 767px) {
+            font-size: 1.0rem;
+        }
     }
 
     /* グッズ（merchandise）の編集リンク用 */
