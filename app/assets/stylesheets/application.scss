@@ -4,6 +4,10 @@
 @import 'category';
 @import "simple_calendar";
 @import "bootstrap";
+@import "jquery-ui";
+@import "jquery-ui/autocomplete";
+@import "jquery-ui/theme";
+@import "jquery-ui/menu";
 $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/fontawesome';
 @import '@fortawesome/fontawesome-free/scss/solid';
