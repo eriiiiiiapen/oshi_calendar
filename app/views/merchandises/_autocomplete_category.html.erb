@@ -1,0 +1,16 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    $('#category_name').autocomplete({
+        autoFocus: true,  //フォーカスされたアイテムの値にテキストフィールドの値を置き換え
+        source: "/merchandises/autocomplete_category.json",  //merchandises/autocomplete_category.jsonを読み込み
+        minLength: 1  //オートコンプリートの動作する文字数
+    });
+  });
+</script>
+
+<%= fields_for :category do |category_form| %>
+  <div class="field">
+    <%= category_form.label :name %>
+    <%= category_form.text_field :name, class: 'form-control', id: 'category_name' %>
+  </div>
+<% end %>

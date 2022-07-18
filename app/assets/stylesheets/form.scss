@@ -1,7 +1,7 @@
 .container {
     padding-bottom: 40px;
     .field{
-          color: rgb(95, 165, 234);  
+          color: #5fa5ea;  
         .form-control{
             background-color: rgb(255, 232, 189);
         }
@@ -15,6 +15,18 @@
     .merchandise-text{
         color: rgb(255, 186, 57);
     }
-}
+} 
 
-  
+/* リスト全体の背景 */
+.ui-widget.ui-widget-content {
+border: 1px solid #f9df88;
+background: #f8db9d;
+color: #333333;
+}
+/* リスト hover 時のカラー */
+.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
+border: 1px solid #f8db9d;
+background: #f6c65f;
+font-weight: normal;
+color: #ffffff;
+}

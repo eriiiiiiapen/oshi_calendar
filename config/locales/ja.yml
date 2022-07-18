@@ -1,4 +1,25 @@
 ja:
+  defaults: #すべてのコントローラーで使える
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    post: '投稿'
+    search_word: '検索ワード'
+    update: '更新する'
+    show: '詳細'
+    delete: '削除'
+    edit: '編集'
+    password_reset: 'パスワードリセット'
+    message:
+      require_login: 'ログインしてください'
+      created: '%{item}を作成しました'
+      not_created: '%{item}を作成できませんでした'
+      updated: '%{item}を更新しました'
+      not_updated: '%{item}を更新できませんでした'
+      deleted: '%{item}を削除しました'
+      delete_confirm: '削除しますか？'
+      not_authorized: '権限がありません'
+
   simple_calendar:
     previous: "◀︎"
     next: "▶︎"
@@ -28,6 +49,23 @@ ja:
           price: '値段'
           start_at: '開始日'
           end_at: '終了日'
+  users:
+    new:  
+      title: 'ユーザー登録'
+      to_login_page: 'ログインページへ'
+    create:
+      success: 'ユーザー登録が完了しました'
+      fail: 'もう一度入力してください'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      to_register_page: 'まだ登録されていない方はこちら'
+    create:
+      success: 'ログインしました'
+      fail: 'もう一度入力してください'
+    destroy:
+      success: 'ログアウトしました'
+
   date:
     abbr_day_names:
       - 日

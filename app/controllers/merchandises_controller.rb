@@ -1,65 +1,68 @@
 class MerchandisesController < ApplicationController
   before_action :set_merchandise, only: %i[edit update destroy]
-  before_action :set_bookmark, only: %i[update_amount]
-
   def index
     @merchandises = current_user.merchandises
-    @bookmarks_merchandises = current_user.bookmark_merchandises.includes(:user).order(created_at: :asc)
 
-    array_price = []
-    array_bookmarks_merchandise = []
+    array_merchandise = []
 
-    @bookmarks_merchandises.each do |bookmarks_merchandise|
-      if Date.today.month == bookmarks_merchandise.start_at.month
-      array_bookmarks_merchandise << bookmarks_merchandise
-      array_price << bookmarks_merchandise.price * bookmarks_merchandise.bookmarks.find_by(merchandise_id: bookmarks_merchandise.id).amount  
-      end
-
-      @month_bookmarks_merchandises = array_bookmarks_merchandise
-      @total_price = array_price.sum
+    @merchandises.each do |merchandise|
+      array_merchandise << merchandise if Time.zone.today.month == merchandise.start_at.month
     end
-      @category_users = current_user.categories    
+    @month_merchandises = array_merchandise
   end
 
   def new
     @merchandise = Merchandise.new
+    @category = Category.new
+    @category_merchandise = CategoryMerchandise.new
+
+    @categories = Category.all.map(&:name)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @categories.to_json }
+    end
   end
 
   def create
     @merchandise = current_user.merchandises.build(params_merchandise)
+    @category = Category.new(category_params)
     if @merchandise.save
+      @category = Category.find_by(name: params[:category][:name]) unless @category.save
+      @category_merchandise = CategoryMerchandise.create(category_id: @category.id, merchandise_id: @merchandise.id)
       redirect_to merchandises_path
     else
       render :new
     end
   end
 
-  def update_amount
-    if @bookmark.update(bookmark_params)
-      redirect_to merchandises_path
-    end
-  end
-
-  def edit;end
+  def edit; end
 
   def update
     if @merchandise.update(params_merchandise)
+      @category.update(category_params)
       redirect_to merchandises_path
     else
       render :edit
     end
   end
 
-  def destroy;end
+  def destroy; end
+
+  def autocomplete_category
+    @categories = Category.select(:name).where("name like '%#{params[:term]}%'").order(:name).reject(&:blank?)
+    @categories = @categories.map(&:name)
+    render json: @categories.to_json
+  end
 
   private
 
-  def set_bookmark
-    @bookmark = current_user.bookmarks.find_by(merchandise_id: params[:merchandise_id])
+  def category_params
+    params.require(:category).permit(:name)
   end
-    
-  def bookmark_params  
-    params.permit(:amount, :merchandise_id, :user_id)
+
+  def autocomplete_params
+    params.permit(:category)
   end
 
   def set_merchandise

@@ -5,52 +5,31 @@
   <% merchandises.each do |merchandise| %>
   <div>
     <%= link_to merchandise.name, edit_merchandise_path(merchandise), class: 'merchandise-text' %>
-
-    <% if current_user.bookmark?(merchandise) %>
-    <%= render 'unbookmark', {merchandise: merchandise} %>
-    <% else %>
-      <%= render 'bookmark', {merchandise: merchandise} %>
-    <% end %>
   </div>
   <% end %>
 <% end %>
 
+<%= javascript_pack_tag 'merchandises/cost' %>
 <div class="row">
-  <div class="col-6">
+  <div class="col-12">
     <div class='innner-text'>
-      <h3>今月の推し額</h3>
-      <h4><%= "#{@total_price}円" %></h4>
-
-      <h3>今月の推し活</h3>
-    <% if @month_bookmarks_merchandises.present? %>
-      <% @month_bookmarks_merchandises.each do |merchandise| %>
-        <%= link_to merchandise.name, edit_merchandise_path(merchandise), class: 'merchandise-text' %><br>
-        <%= merchandise.price %>
-        ×
-        <%= current_user.bookmarks.find_by(merchandise_id: merchandise.id).amount %>
-        =
-        <%= merchandise.price * current_user.bookmarks.find_by(merchandise_id: merchandise.id).amount %>
-
-    <div class='form-text'>
-      <%= form_with(url: update_amount_url, method: :post, local: true) do |form| %>
-        <%= form.hidden_field :merchandise_id, :value => merchandise.id %>
-        <%= form.number_field :amount, placeholder: '個数を変更' %>
-        <%= form.submit "更新", class: 'btn btn-warning' %>
-      <% end %>
-    </div>
+    <% if @month_merchandises.present? %>
+    <h3>今月の推し額</h3>
+    <span id="total-area"></span>円
+    <h3>今月の推し活</h3>
+      <% @month_merchandises.each do |merchandise| %>
+        <%= link_to merchandise.name, edit_merchandise_path(merchandise), class: 'merchandise-text' %>
+        <div class="merchandise-price", id='merchandise-price-<%= merchandise.id %>'><%= merchandise.price %></div>
+        × 
+        <form>
+          <input class="amount-input" type="text" id="amount-input-<%= merchandise.id %>" oninput="costFunc();">
+        </form>
+        = <span class="merchandise-result" id="merchandise-result-<%= merchandise.id %>"></span>円</br>
       <% end %>
     <% else %>
       購入なし
     <% end %>
     </div>
-  </div>
-
-  <div class="col-6">
-    <h3>登録中のカテゴリ</h3>
-    <% @category_users.each do |category| %>
-      <h4><%= category.name %></h4>
-    <% end %>
-      <button class='btn btn-warning'><%= link_to 'カテゴリの編集', categories_url, class: 'category-text' %></button>
   </div>
 </div>
 
